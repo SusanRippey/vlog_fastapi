@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
-origins = []
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,

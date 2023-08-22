@@ -14,9 +14,9 @@ router = APIRouter(
 
 
 @router.get('/')
-def home():
+def home(current_user: dict =  Depends(oauth2.get_current_user)):
 
-    return {'Welcome': 'Welcome'}
+    return {'Welcome': current_user.email, 'user_id': current_user.id}
 
 @router.get('/posts', response_model=list[schemas.Post])
 def get_posts(
