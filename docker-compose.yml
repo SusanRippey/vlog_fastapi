@@ -1,0 +1,16 @@
+version: "3"
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: vlogs_user
+      POSTGRES_PASSWORD: HStNVutHb9fjCtqHpN7reCuxtFajyfuG
+      POSTGRES_DB: vlogs
+      POSTGRES_HOST: dpg-cji2ok8cfp5c73fh3na0-a.singapore-postgres.render.com
+      POSTGRES_PORT: 5432
